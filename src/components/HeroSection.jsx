@@ -116,8 +116,8 @@ const HeroSection = () => {
               slidesToScroll={1}
               slidesToShow={1}
               hasAutoPlay={true}
-              autoPlaySpeed={3000}
-              speed={1000}
+              autoPlaySpeed={3500}
+              speed={2000}
               type="services"
             />
             <div className="flex gap-2">

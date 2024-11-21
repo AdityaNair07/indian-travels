@@ -31,7 +31,7 @@ const Navbar = () => {
             Home
           </a>
           <a
-            href="#about"
+            href="/#about"
             className="flex items-center justify-center gap-2 px-4 py-2 font-bold uppercase transition-all duration-150 rounded-md cursor-pointer text-my_blue hover:text-white hover:bg-primary"
           >
             <svg
@@ -123,25 +123,11 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* menu button on screens below lg size  */}
         <div
           className="relative lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 512 512"
-              className="text-3xl font-bold"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
-            </svg>
-          ) : (
             <svg
               stroke="currentColor"
               fill="none"
@@ -159,9 +145,22 @@ const Navbar = () => {
                 fill="currentColor"
               ></path>
             </svg>
+          ) : (
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 512 512"
+              className="text-3xl font-bold"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path>
+            </svg>
           )}
 
-          {!isMenuOpen && (
+          {isMenuOpen && (
             <div className="absolute flex flex-col w-40 gap-5 px-5 bg-white rounded-md shadow-md -right-5 py-7 top-12">
               <a
                 onClick={() => setIsMenuOpen(false)}
@@ -173,7 +172,7 @@ const Navbar = () => {
               <a
                 onClick={() => setIsMenuOpen(false)}
                 className="font-bold uppercase text-my_blue"
-                href="#about"
+                href="/#about"
               >
                 About
               </a>
@@ -195,7 +194,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* whatsapp link on screens below xl size  */}
         <div className="fixed bottom-0 right-0 z-10 p-2 text-5xl text-green-700 bg-gray-200 rounded-t-full rounded-l-full xl:hidden">
           <a
             href="https://wa.me/+918517911111?text=hey,whatsup?"
