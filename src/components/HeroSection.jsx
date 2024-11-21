@@ -120,8 +120,8 @@ const HeroSection = () => {
               speed={2000}
               type="services"
             />
-            <div className="flex gap-2">
-              <div className="flex items-center w-1/2 gap-4 p-2 bg-white rounded-md">
+            <div className="flex flex-col gap-2 md:flex-row">
+              <div className="flex items-center gap-4 p-2 bg-white rounded-md md:w-1/2">
                 <img
                   className="w-10 h-10"
                   src=" /images/driverIcon.png"
@@ -129,7 +129,7 @@ const HeroSection = () => {
                 />
                 <p className="font-bold">Experienced and polite drivers</p>
               </div>
-              <div className="flex items-center w-1/2 p-2 font-bold bg-white rounded-md">
+              <div className="flex items-center p-2 font-bold bg-white rounded-md md:w-1/2">
                 Comfortable rides
               </div>
             </div>
