@@ -4,7 +4,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="sticky top-0 z-10 bg-secondary">
+    <div className="sticky top-0 z-40 bg-secondary">
       <div className="container flex items-center justify-between w-full gap-10 px-10 py-5 mx-auto lg:px-0 lg:gap-20">
         <div>
           <h3 className="p-2 text-lg font-extrabold text-transparent uppercase cursor-pointer sm:text-xl md:text-2xl bg-clip-text text-primary bg-gradient-to-r from-primary to-my_blue">

@@ -11,7 +11,7 @@ const HeroSection = () => {
           fill="currentColor"
           strokeWidth="0"
           viewBox="0 0 512 512"
-          className="p-2 text-5xl text-white rounded-full bg-buttonOrange"
+          className="p-2 text-5xl text-white rounded-full bg-primary"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const HeroSection = () => {
           fill="currentColor"
           strokeWidth="0"
           viewBox="0 0 512 512"
-          className="p-2 text-5xl text-white rounded-full bg-buttonOrange"
+          className="p-2 text-5xl text-white rounded-full bg-primary"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const HeroSection = () => {
           fill="currentColor"
           strokeWidth="0"
           viewBox="0 0 576 512"
-          className="p-2 text-5xl text-white rounded-full bg-buttonOrange"
+          className="p-2 text-5xl text-white rounded-full bg-primary"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const HeroSection = () => {
           fill="currentColor"
           strokeWidth="0"
           viewBox="0 0 24 24"
-          className="p-2 text-5xl text-white rounded-full bg-buttonOrange"
+          className="p-2 text-5xl text-white rounded-full bg-primary"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -87,54 +87,56 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="relative w-full max-h-full min-h-screen pt-20">
+    <>
       <div className="absolute top-0 w-full h-[300px] bg-primary rounded-b-full left-0 -z-5"></div>
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 place-items-center">
-        <div className="flex flex-col w-1/2 lg:-mt-80">
-          <h1 className="py-2 text-2xl font-extrabold text-white lg:text-4xl md:py-4">
-            Book cab online
-          </h1>
-          <div className="flex items-center justify-center w-full h-64 font-bold text-red-500 bg-white rounded-md shadow-sm">
-            Currently no service available
-          </div>
-        </div>
-        <div className="flex flex-col w-full px-3 border-2 gap-y-4 md:w-1/2 lg:mt-10 xl:mt-20">
-          <Carousel
-            data={sliderImageData}
-            isInfinite={true}
-            slidesToScroll={1}
-            slidesToShow={1}
-            hasAutoPlay={true}
-            autoPlaySpeed={3000}
-            speed={1000}
-            type="image"
-          />
-          <Carousel
-            data={servicesData}
-            isInfinite={true}
-            slidesToScroll={1}
-            slidesToShow={1}
-            hasAutoPlay={true}
-            autoPlaySpeed={3000}
-            speed={1000}
-            type="text"
-          />
-          <div className="flex gap-2">
-            <div className="flex items-center w-1/2 gap-4 p-2 bg-white rounded-md">
-              <img
-                className="w-10 h-10"
-                src="src/assets/images/driverIcon.png"
-                alt="driver icon"
-              />
-              <p className="font-bold">Experienced and polite drivers</p>
+      <div className="container relative w-full max-h-full min-h-screen px-10 pt-20 mx-auto lg:px-0">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 place-items-center">
+          <div className="flex flex-col w-full mb-10 lg:w-1/2 lg:-mt-80 lg:mb-0">
+            <h1 className="py-2 text-2xl font-extrabold text-center text-white lg:text-start lg:text-4xl md:py-4">
+              Book cab online
+            </h1>
+            <div className="flex items-center justify-center w-full h-64 font-bold text-red-500 bg-white rounded-md shadow-sm">
+              Currently no service available
             </div>
-            <div className="flex items-center w-1/2 p-2 font-bold bg-white rounded-md">
-              Comfortable rides
+          </div>
+          <div className="flex flex-col w-full px-3 gap-y-4 lg:w-[80%] lg:mt-10 xl:mt-20">
+            <Carousel
+              data={sliderImageData}
+              isInfinite={true}
+              slidesToScroll={1}
+              slidesToShow={1}
+              hasAutoPlay={true}
+              autoPlaySpeed={3000}
+              speed={1000}
+              type="image"
+            />
+            <Carousel
+              data={servicesData}
+              isInfinite={true}
+              slidesToScroll={1}
+              slidesToShow={1}
+              hasAutoPlay={true}
+              autoPlaySpeed={3000}
+              speed={1000}
+              type="services"
+            />
+            <div className="flex gap-2">
+              <div className="flex items-center w-1/2 gap-4 p-2 bg-white rounded-md">
+                <img
+                  className="w-10 h-10"
+                  src="src/assets/images/driverIcon.png"
+                  alt="driver icon"
+                />
+                <p className="font-bold">Experienced and polite drivers</p>
+              </div>
+              <div className="flex items-center w-1/2 p-2 font-bold bg-white rounded-md">
+                Comfortable rides
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
