@@ -124,7 +124,7 @@ const HeroSection = () => {
               <div className="flex items-center w-1/2 gap-4 p-2 bg-white rounded-md">
                 <img
                   className="w-10 h-10"
-                  src="src/assets/images/driverIcon.png"
+                  src=" /images/driverIcon.png"
                   alt="driver icon"
                 />
                 <p className="font-bold">Experienced and polite drivers</p>

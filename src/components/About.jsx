@@ -36,7 +36,7 @@ const About = ({ aboutData }) => {
         {aboutData[2]?.imageName && (
           <div className="flex items-center justify-center">
             <img
-              src={`src/assets/images/${aboutData[2].imageName}.png`}
+              src={` /images/${aboutData[2].imageName}.png`}
               alt="about image"
               className="w-full md:w-80"
             />

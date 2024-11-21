@@ -59,7 +59,7 @@ const Carousel = ({
             >
               <img
                 className="object-cover w-full lg:h-64 h-72"
-                src={`src/assets/images/${item}.jpg`}
+                src={`/images/${item}.jpg`}
                 alt="slider image"
               />
             </div>

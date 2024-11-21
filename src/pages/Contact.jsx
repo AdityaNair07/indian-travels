@@ -8,7 +8,7 @@ const Contact = () => {
       <div className="container flex items-center justify-between gap-10 px-10 py-20 mx-auto lg:p-20 lg:px-0">
         <div className="hidden p-10 xl:w-2/3 lg:h-2/4 lg:block">
           <img
-            src="src/assets/images/contact.png"
+            src=" /images/contact.png"
             className="w-full opacity-70"
             alt="contact image"
           />

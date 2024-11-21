@@ -24,7 +24,7 @@ const PointsWithImage = ({ imgAlignment, textData, imageName }) => {
         </div>
         <div className="w-full lg:w-1/2">
           <img
-            src={`src/assets/images/${imageName}.png`}
+            src={` /images/${imageName}.png`}
             alt="image"
             className="object-cover w-full h-96"
           />
