@@ -52,7 +52,7 @@ const Carousel = ({
   };
 
   return (
-    <div className="w-full slider-container">
+    <div className="w-full slider-container h-full">
       <Slider {...settings}>
         {type === "image" && Array.isArray(data) ? (
           data.map((item, index) => (
@@ -86,7 +86,7 @@ const Carousel = ({
           data.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col gap-4 p-5 bg-white rounded-md shadow-md h-[250px]"
+              className="flex flex-col gap-4 p-5 bg-white rounded-md shadow-md min-h-[250px] h-full"
             >
               <div className="flex items-center gap-4 p-2 mb-4">
                 {item.svg}

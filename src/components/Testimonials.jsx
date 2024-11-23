@@ -20,7 +20,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="container px-10 mx-auto lg:px-0">
+    <div className="container px-10 mx-auto lg:px-0 pt-20">
       <h1 className="p-2 mb-5 text-3xl font-bold text-center">
         What our customer says
       </h1>

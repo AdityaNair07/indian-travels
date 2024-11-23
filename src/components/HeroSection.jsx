@@ -1,6 +1,109 @@
+import { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 
 const HeroSection = () => {
+  const bookCabData = [
+    {
+      svg: (
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth="0"
+          viewBox="0 0 512 512"
+          className="text-2xl lg:text-3xl "
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"></path>
+        </svg>
+      ),
+      mainHeading: "outstation",
+      data: [
+        { heading: "oneway" },
+        { heading: "roundtrip" },
+        { heading: "multicity" },
+      ],
+    },
+    {
+      svg: (
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth="0"
+          version="1.1"
+          viewBox="0 0 16 16"
+          className="text-2xl lg:text-3xl "
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M8 0c-2.761 0-5 2.239-5 5 0 5 5 11 5 11s5-6 5-11c0-2.761-2.239-5-5-5zM8 8c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"></path>
+        </svg>
+      ),
+      mainHeading: "local",
+      data: [{ heading: "halfday" }, { heading: "fullday" }],
+    },
+    {
+      svg: (
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth="0"
+          viewBox="0 0 24 24"
+          className="text-2xl lg:text-3xl "
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M19.924 10.383a1 1 0 0 0-.217-1.09l-5-5-1.414 1.414L16.586 9H4v2h15a1 1 0 0 0 .924-.617zM4.076 13.617a1 1 0 0 0 .217 1.09l5 5 1.414-1.414L7.414 15H20v-2H5a.999.999 0 0 0-.924.617z"></path>
+        </svg>
+      ),
+      mainHeading: "transfer",
+      data: [
+        { heading: "railwaystation" },
+        { heading: "airport" },
+        { heading: "hotel" },
+      ],
+    },
+    {
+      svg: (
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth="0"
+          viewBox="0 0 24 24"
+          className="text-2xl lg:text-3xl "
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path d="m21.41 11.58-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"></path>
+        </svg>
+      ),
+      mainHeading: "deal",
+      data: [{ heading: "onewaydeal" }],
+    },
+  ];
+
+  const [selectedService, setSelectedService] = useState(
+    bookCabData[0].mainHeading
+  );
+  const [selectedSubService, setSelectedSubService] = useState(
+    bookCabData.find((item) => item.mainHeading === selectedService).data[0]
+      .heading
+  );
+
+  useEffect(() => {
+    const selectedData = bookCabData.find(
+      (item) => item.mainHeading === selectedService
+    );
+    if (selectedData) {
+      setSelectedSubService(selectedData.data[0].heading);
+    }
+  }, [selectedService]);
+
   const sliderImageData = ["sliderImg1", "sliderImg2", "sliderImg3"];
 
   const servicesData = [
@@ -91,12 +194,226 @@ const HeroSection = () => {
       <div className="absolute top-0 w-full h-[300px] bg-primary rounded-b-full left-0 -z-5"></div>
       <div className="container relative w-full max-h-full min-h-screen px-10 pt-20 mx-auto lg:px-0">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 place-items-center">
-          <div className="flex flex-col w-full mb-10 lg:w-1/2 lg:-mt-80 lg:mb-0">
-            <h1 className="py-2 text-2xl font-extrabold text-center text-white lg:text-start lg:text-4xl md:py-4">
-              Book cab online
-            </h1>
-            <div className="flex items-center justify-center w-full h-64 font-bold text-red-500 bg-white rounded-md shadow-sm">
-              Currently no service available
+          <div className="flex flex-col w-full md:w-[80%] mb-10">
+            <div className="flex flex-col mb-10">
+              <h1 className="w-full py-2 text-2xl font-extrabold text-center text-white lg:text-4xl md:py-4">
+                Book cab online
+              </h1>
+              <div className="flex gap-5 md:gap-10 items-center justify-center md:flex-row flex-col">
+                <button className="w-full md:w-60 p-3 text-xl font-semibold text-white rounded-md bg-my_blue ">
+                  (+91)-8517911111
+                </button>
+                <button className="w-full md:w-60 p-3 text-xl font-semibold text-black rounded-md bg-yellow-400">
+                  Chat with us
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center w-full gap-5 font-bold justify-center flex-wrap">
+              {bookCabData.map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedService(item.mainHeading)}
+                  className={`uppercase text-my_blue border-sky-500 flex flex-col gap-2 items-center justify-center px-3 py-2 rounded-md w-32 ${
+                    selectedService === item.mainHeading
+                      ? "bg-yellow-400"
+                      : "bg-white border-2"
+                  }`}
+                >
+                  {item.svg}
+                  {item.mainHeading}
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-5">
+              {selectedService && (
+                <>
+                  <div className="flex gap-5 items-center mt-3 justify-center flex-wrap">
+                    {bookCabData
+                      .find((item) => item.mainHeading === selectedService)
+                      ?.data.map((dataItem, index) => (
+                        <button
+                          key={index}
+                          onClick={() =>
+                            setSelectedSubService(dataItem.heading)
+                          }
+                          className={`text-black md:text-2xl p-2 pb-4 relative font-bold uppercase ${
+                            selectedSubService === dataItem.heading
+                              ? "after:w-full after:absolute after:bottom-0 after:left-0 after:h-1 after:bg-my_blue"
+                              : ""
+                          }`}
+                        >
+                          {dataItem.heading}
+                        </button>
+                      ))}
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="mt-10 bg-my_blue w-full md:w-[80%] mx-auto h-full border-t-4 border-primary p-5">
+              <h1 className="text-center text-lg text-white md:text-2xl font-bold p-2">
+                Book Your{" "}
+                <span className="capitalize">{selectedSubService}</span> Taxi
+              </h1>
+              <form
+                action=""
+                className="w-full h-full flex flex-col mt-5 gap-5 pb-5"
+                onSubmit={console.log("form submitted")}
+              >
+                <div className="flex md:flex-row gap-3 flex-col">
+                  <div className="flex flex-col gap-2 w-full">
+                    <label className="text-white text-lg" htmlFor="fullName">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full p-2"
+                      id="fullName"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2 w-full">
+                    <label className="text-white text-lg" htmlFor="contact">
+                      Contact
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full p-2"
+                      id="contact"
+                      placeholder="Enter your contact"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="text-white text-lg">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="p-2 w-full"
+                    placeholder="Enter your email"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="pickup" className="text-white text-lg">
+                    Pickup Address
+                  </label>
+                  <div className="w-full relative">
+                    <span className="border-r border-black absolute left-0 top-0 h-full text-yellow-400 p-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        version="1.2"
+                        baseProfile="tiny"
+                        viewBox="0 0 24 24"
+                        height="100%"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M17.657 5.304c-3.124-3.073-8.189-3.073-11.313 0-3.124 3.074-3.124 8.057 0 11.13l5.656 5.565 5.657-5.565c3.124-3.073 3.124-8.056 0-11.13zm-5.657 8.195c-.668 0-1.295-.26-1.768-.732-.975-.975-.975-2.561 0-3.536.472-.472 1.1-.732 1.768-.732s1.296.26 1.768.732c.975.975.975 2.562 0 3.536-.472.472-1.1.732-1.768.732z"></path>
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      id="pickup"
+                      className="p-2 w-full h-full pl-12"
+                      placeholder="Enter pickup location"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="drop" className="text-white text-lg">
+                    Drop Address
+                  </label>
+                  <div className="w-full relative">
+                    <span className="border-r border-black absolute left-0 top-0 h-full text-yellow-400 p-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        version="1.2"
+                        baseProfile="tiny"
+                        viewBox="0 0 24 24"
+                        height="100%"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M17.657 5.304c-3.124-3.073-8.189-3.073-11.313 0-3.124 3.074-3.124 8.057 0 11.13l5.656 5.565 5.657-5.565c3.124-3.073 3.124-8.056 0-11.13zm-5.657 8.195c-.668 0-1.295-.26-1.768-.732-.975-.975-.975-2.561 0-3.536.472-.472 1.1-.732 1.768-.732s1.296.26 1.768.732c.975.975.975 2.562 0 3.536-.472.472-1.1.732-1.768.732z"></path>
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      id="drop"
+                      className="p-2 w-full h-full pl-12"
+                      placeholder="Enter drop location"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="pickupDate" className="text-white text-lg">
+                    Pickup Date and Time
+                  </label>
+                  <div className="w-full relative">
+                    <span className="border-r border-black absolute left-0 top-0 h-full text-yellow-400 p-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        viewBox="0 0 24 24"
+                        height="100%"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"></path>
+                      </svg>
+                    </span>
+                    <input
+                      type="datetime-local"
+                      id="pickupDate"
+                      className="p-2 w-full h-full pl-12"
+                      placeholder="Enter pickup date and time"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="dropDate" className="text-white text-lg">
+                    Drop Date and Time
+                  </label>
+                  <div className="w-full relative">
+                    <span className="border-r border-black absolute left-0 top-0 h-full text-yellow-400 p-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        strokeWidth="0"
+                        viewBox="0 0 24 24"
+                        height="100%"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"></path>
+                      </svg>
+                    </span>
+                    <input
+                      type="datetime-local"
+                      id="dropDate"
+                      className="p-2 w-full h-full pl-12"
+                      placeholder="Enter drop date and time"
+                    />
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  className="bg-primary text-white font-bold md:text-xl text-lg p-2 rounded-md w-[80%] lg:w-1/2 mx-auto mt-5"
+                >
+                  Search Cab
+                </button>
+              </form>
             </div>
           </div>
           <div className="flex flex-col w-full px-3 gap-y-4 lg:w-[80%] lg:mt-10 xl:mt-20">

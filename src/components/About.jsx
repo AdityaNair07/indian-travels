@@ -2,7 +2,10 @@ import propTypes from "prop-types";
 
 const About = ({ aboutData }) => {
   return (
-    <div className="container w-full px-10 mx-auto mb-16 lg:px-0" id="about">
+    <div
+      className="container w-full px-10 mx-auto mb-16 lg:px-0 pt-20"
+      id="about"
+    >
       <div className="w-full p-10">
         <h1 className="p-10 text-2xl font-bold text-center uppercase md:text-4xl">
           Who we are?
